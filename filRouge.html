@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+         const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        const Header = () => {
+            const title = "la maison jungle";
+            return (<h1>{title.toUpperCase()}</h1>);
+        };
+
+        const Description = () => {
+            const text = "Ici achetez toutes les plantes dont vous avez toujours rêvé ";
+            const emojis = "🌵🌱🎍";
+            return(<p> {text + emojis} </p>);
+        };
+
+        const Banner = () => {
+            return(<div>
+                <Header />
+                <Description />
+            </div>);
+        };
+
+        const Cart = () => {
+            const monsteraPrice = 8;
+            const lierrePrice = 10;
+            const bouquetPrice = 15;
+            return (<div>
+                <h2>Panier</h2>
+                <ul>
+                    <li>Monstera: {monsteraPrice}€</li>
+                    <li>Lierre: {lierrePrice}€</li>
+                    <li>Bouquet de fleurs: {bouquetPrice}€</li>
+                </ul>
+                Total: {monsteraPrice + lierrePrice + bouquetPrice}€
+            </div>)
+        }
+        root.render(<React.Fragment><Banner /><Cart /></React.Fragment>);
+
+    </script>
+</body>
+</html>
